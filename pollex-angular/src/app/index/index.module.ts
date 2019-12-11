@@ -4,14 +4,15 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { IndexComponent } from './index.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { IndexRoutingModule } from './index-routing.module';
-
-
+import { LoginComponent } from '../security/login/login.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [LandingPageComponent, IndexComponent, SignupPageComponent],
+  declarations: [LandingPageComponent, IndexComponent, SignupPageComponent, LoginComponent],
   imports: [
     CommonModule,
-    IndexRoutingModule
+    IndexRoutingModule,
+    ReactiveFormsModule
   ],
   providers: []
 })

@@ -1,0 +1,6 @@
+<form class="form-inline my-2 my-lg-0" [formGroup]="loginForm">
+  <input formControlName="username" class="form-control mr-sm-2 rounded-pill my-2" [class.is-invalid]="isUsernameValid" type="text" placeholder="Número USP" aria-label="Número USP">
+  <input formControlName="password" class="form-control mr-sm-2 rounded-pill my-2" [class.is-invalid]="isPasswordValid" type="password" placeholder="Senha" aria-label="Senha">
+  <a (click)="login()" class="btn my-md-0 my-2 font-weight-semibold text-lg hover-primary" type="submit">Entrar</a>
+  <a [routerLink]="['/sign-up']" class="btn my-md-0 my-2 font-weight-semibold text-lg hover-primary">Cadastrar</a>
+</form>
