@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from os import getenv
 
 app = Flask(__name__, instance_relative_config=True)
@@ -7,6 +8,10 @@ app.config.from_object('config.default')
 if getenv('FLASK_ENV') == 'production': app.config.from_object('config.production')
 if getenv('FLASK_ENV') == 'development': app.config.from_object('config.development')
 app.config.from_pyfile('config.py')
+
+# CORS policy
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 from app.database import db
 

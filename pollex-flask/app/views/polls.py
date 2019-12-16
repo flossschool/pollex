@@ -1,8 +1,10 @@
 from flask import Blueprint, request, jsonify
+from flask_cors import cross_origin
 
 polls_module = Blueprint('polls', __name__, url_prefix='/polls')
 
 @polls_module.route('', methods=['GET'])
+@cross_origin()
 def get_polls():
     try:
         token = request.json['token']
@@ -30,6 +32,7 @@ def get_polls():
         return jsonify({"message": "expected a json with token"}), 400
 
 @polls_module.route('/<int:poll_id>')
+@cross_origin()
 def get_poll(poll_id):
     try:
         token = request.json['token']
@@ -52,6 +55,7 @@ def get_poll(poll_id):
 
 
 @polls_module.route('/<int:poll_id>', methods=['UPDATE'])
+@cross_origin()
 def update_poll(poll_id):
     try:
         token = request.json['token']
@@ -73,6 +77,7 @@ def update_poll(poll_id):
 
       
 @polls_module.route('/<int:poll_id>/vote', methods=['POST'])
+@cross_origin()
 def register_vote(poll_id):
     try:
         token = request.json['token']
